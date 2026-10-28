@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Schedule and review tournament fixtures.">
+    <title>Fixtures | College Sports Tournament Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="College Sports Tournament Manager home">
+                <span class="brand-mark" aria-hidden="true">CS</span>
+                <span class="brand-copy">College Sports <span>Tournament Manager</span></span>
+            </a>
+            <nav class="navbar" aria-label="Main navigation">
+                <a class="nav-link" href="index.html">Home <span>/ Dashboard</span></a>
+                <a class="nav-link" href="tournaments.html">Tournaments</a>
+                <a class="nav-link" href="teams.html">Teams</a>
+                <a class="nav-link is-active" href="fixtures.html" aria-current="page">Fixtures</a>
+                <a class="nav-link" href="results.html">Results</a>
+                <a class="nav-link" href="standings.html">Standings</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-shell">
+        <section class="page-heading">
+            <p class="eyebrow">MATCH OPERATIONS</p>
+            <h1>Fixtures</h1>
+            <p>Set the match schedule and keep every venue in view.</p>
+        </section>
+
+        <div class="management-layout">
+            <section class="form-card" aria-labelledby="schedule-title">
+                <div class="card-heading"><span class="heading-index">02</span><div><p class="eyebrow">NEW MATCH</p><h2 id="schedule-title">Schedule Match</h2></div></div>
+                <div class="form-fields">
+                    <div class="form-group"><label for="team1">Team 1</label><select id="team1"><option value="">Select a team</option></select></div>
+                    <div class="form-group"><label for="team2">Team 2</label><select id="team2"><option value="">Select a team</option></select></div>
+                    <div class="form-group"><label for="matchDate">Match Date</label><input type="date" id="matchDate" required></div>
+                    <div class="form-group"><label for="matchTime">Match Time</label><input type="time" id="matchTime" required></div>
+                    <div class="form-group"><label for="venue">Venue</label><input type="text" id="venue" placeholder="Enter match venue" required></div>
+                </div>
+                <button class="primary-btn" type="button" onclick="addFixture()">Create Fixture <span aria-hidden="true">&rarr;</span></button>
+            </section>
+
+            <section class="content-panel table-panel" aria-labelledby="fixtures-title">
+                <div class="section-heading">
+                    <div><p class="eyebrow">UP NEXT</p><h2 class="section-title" id="fixtures-title">Upcoming Fixtures</h2></div>
+                    <div class="table-filters">
+                        <select id="fixtureTournamentFilter" aria-label="Filter by tournament"><option value="">All tournaments</option></select>
+                        <select id="fixtureStatusFilter" aria-label="Filter by status"><option value="">All statuses</option><option>Scheduled</option><option>Completed</option></select>
+                    </div>
+                </div>
+                <p class="empty-state" id="fixtureEmpty" hidden>No fixtures available.</p>
+                <div class="table-wrap">
+                    <table class="data-table" id="fixtureTable">
+                        <thead><tr><th scope="col">Match</th><th scope="col">Team 1</th><th scope="col">Team 2</th><th scope="col">Date</th><th scope="col">Time</th><th scope="col">Venue</th><th scope="col">Tournament</th><th scope="col">Round</th><th scope="col">Status</th><th scope="col">Schedule</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

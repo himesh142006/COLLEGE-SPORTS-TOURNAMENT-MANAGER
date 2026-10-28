@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create and manage college sports tournaments.">
+    <title>Tournaments | College Sports Tournament Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="College Sports Tournament Manager home"><span class="brand-mark" aria-hidden="true">CS</span><span class="brand-copy">College Sports <span>Tournament Manager</span></span></a>
+            <nav class="navbar" aria-label="Main navigation">
+                <a class="nav-link" href="index.html">Dashboard</a>
+                <a class="nav-link is-active" href="tournaments.html" aria-current="page">Tournaments</a>
+                <a class="nav-link" href="teams.html">Teams</a>
+                <a class="nav-link" href="fixtures.html">Fixtures</a>
+                <a class="nav-link" href="results.html">Results</a>
+                <a class="nav-link" href="standings.html">Standings</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container page-shell">
+        <section class="page-heading"><p class="eyebrow">COMPETITION SETUP</p><h1>Tournaments</h1><p>Create a competition, assign teams, then start and generate its schedule.</p></section>
+        <div class="management-layout tournament-layout">
+            <section class="form-card" aria-labelledby="create-tournament-title">
+                <div class="card-heading"><span class="heading-index">01</span><div><p class="eyebrow">NEW COMPETITION</p><h2 id="create-tournament-title">Create Tournament</h2></div></div>
+                <div class="form-fields">
+                    <div class="form-group"><label for="tournamentName">Tournament Name</label><input id="tournamentName" type="text" placeholder="e.g. CSE Cricket Championship 2026" required></div>
+                    <div class="form-group"><label for="tournamentSport">Sport</label><select id="tournamentSport"><option>Cricket</option><option>Football</option><option>Basketball</option><option>Volleyball</option><option>Kabaddi</option></select></div>
+                    <div class="form-group form-pair"><div><label for="startDate">Start Date</label><input id="startDate" type="date" required></div><div><label for="endDate">End Date</label><input id="endDate" type="date" required></div></div>
+                    <div class="form-group"><label for="tournamentVenue">Venue</label><input id="tournamentVenue" type="text" placeholder="College Ground" required></div>
+                    <div class="form-group form-pair"><div><label for="numberOfTeams">Number of Teams</label><input id="numberOfTeams" type="number" min="2" max="32" step="1" value="2" required></div><div><label for="tournamentFormat">Format</label><select id="tournamentFormat"><option>League</option><option>Knockout</option></select></div></div>
+                </div>
+                <button class="primary-btn" type="button" onclick="addTournament()">Create Tournament <span aria-hidden="true">&rarr;</span></button>
+            </section>
+
+            <div class="tournament-workspace">
+                <section class="content-panel" aria-labelledby="setup-title">
+                    <div class="section-heading"><div><p class="eyebrow">TEAM ASSIGNMENT</p><h2 class="section-title" id="setup-title">Tournament Setup</h2></div><span class="section-count" id="selectedTeamCount">0 / 0 selected</span></div>
+                    <div class="form-group"><label for="manageTournament">Select Tournament</label><select id="manageTournament"><option value="">Choose a tournament</option></select></div>
+                    <div class="team-picker" id="tournamentTeamPicker"><p class="empty-state">Create or select a tournament to assign teams.</p></div>
+                    <div class="setup-actions">
+                        <button class="secondary-btn" id="saveTournamentTeams" type="button" disabled>Save Teams</button>
+                        <button class="secondary-btn" id="startTournament" type="button" disabled>Start Tournament</button>
+                        <button class="primary-btn" id="generateTournamentFixtures" type="button" disabled>Generate Fixtures <span aria-hidden="true">&rarr;</span></button>
+                    </div>
+                    <p class="inline-message" id="tournamentMessage" role="status" hidden></p>
+                    <div id="tournamentProgressDisplay" class="tournament-progress-display" hidden></div>
+                    <div id="tournamentChampion" class="champion-card" hidden></div>
+                </section>
+
+                <section class="content-panel" aria-labelledby="tournament-list-title">
+                    <div class="section-heading">
+                        <div><p class="eyebrow">COMPETITION REGISTER</p><h2 class="section-title" id="tournament-list-title">All Tournaments</h2></div>
+                        <div class="table-filters"><input id="tournamentSearch" type="search" placeholder="Search tournaments" aria-label="Search tournaments"><select id="tournamentStatusFilter" aria-label="Filter by status"><option value="">All statuses</option><option>Upcoming</option><option>Ongoing</option><option>Completed</option></select></div>
+                    </div>
+                    <div class="tournament-list" id="tournamentList"></div>
+                    <p class="empty-state" id="tournamentEmpty">No tournaments created yet.</p>
+                </section>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

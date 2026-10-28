@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Record match scores and review completed tournament results.">
+    <title>Results | College Sports Tournament Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="College Sports Tournament Manager home">
+                <span class="brand-mark" aria-hidden="true">CS</span>
+                <span class="brand-copy">College Sports <span>Tournament Manager</span></span>
+            </a>
+            <nav class="navbar" aria-label="Main navigation">
+                <a class="nav-link" href="index.html">Home <span>/ Dashboard</span></a>
+                <a class="nav-link" href="tournaments.html">Tournaments</a>
+                <a class="nav-link" href="teams.html">Teams</a>
+                <a class="nav-link" href="fixtures.html">Fixtures</a>
+                <a class="nav-link is-active" href="results.html" aria-current="page">Results</a>
+                <a class="nav-link" href="standings.html">Standings</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-shell">
+        <section class="page-heading">
+            <p class="eyebrow">SCOREBOARD</p>
+            <h1>Match Results</h1>
+            <p>Record final scores and keep the tournament standings current.</p>
+        </section>
+
+        <div class="management-layout">
+            <section class="form-card" aria-labelledby="result-entry-title">
+                <div class="card-heading"><span class="heading-index">03</span><div><p class="eyebrow">FINAL SCORE</p><h2 id="result-entry-title">Enter Match Result</h2></div></div>
+                <div class="form-fields">
+                    <div class="form-group"><label for="resultFixture">Scheduled Fixture</label><select id="resultFixture"><option value="">Manual result</option></select></div>
+                    <div class="form-group"><label for="resultTeam1">Team 1</label><select id="resultTeam1"><option value="">Select a team</option></select></div>
+                    <div class="form-group"><label for="score1">Team 1 Score</label><input type="number" id="score1" min="0" step="1" placeholder="Enter score" required></div>
+                    <div class="form-group"><label for="resultTeam2">Team 2</label><select id="resultTeam2"><option value="">Select a team</option></select></div>
+                    <div class="form-group"><label for="score2">Team 2 Score</label><input type="number" id="score2" min="0" step="1" placeholder="Enter score" required></div>
+                </div>
+                <button class="primary-btn" type="button" onclick="addResult()">Save Result <span aria-hidden="true">&rarr;</span></button>
+            </section>
+
+            <section class="content-panel table-panel" aria-labelledby="results-title">
+                <div class="section-heading">
+                    <div><p class="eyebrow">MATCH ARCHIVE</p><h2 class="section-title" id="results-title">Completed Matches</h2></div>
+                    <select id="resultTournamentFilter" aria-label="Filter results by tournament"><option value="">All tournaments</option></select>
+                </div>
+                <p class="empty-state" id="resultEmpty" hidden>No results recorded yet.</p>
+                <div class="table-wrap">
+                    <table class="data-table" id="resultTable">
+                        <thead><tr><th scope="col">Team 1</th><th scope="col">Score</th><th scope="col">Team 2</th><th scope="col">Score</th><th scope="col">Winner</th><th scope="col">Tournament</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

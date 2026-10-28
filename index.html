@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage college sports teams, fixtures, and tournament results.">
+    <title>Dashboard | College Sports Tournament Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="College Sports Tournament Manager home">
+                <span class="brand-mark" aria-hidden="true">CS</span>
+                <span class="brand-copy">College Sports <span>Tournament Manager</span></span>
+            </a>
+            <nav class="navbar" aria-label="Main navigation">
+                <a class="nav-link is-active" href="index.html" aria-current="page">Home <span>/ Dashboard</span></a>
+                <a class="nav-link" href="tournaments.html">Tournaments</a>
+                <a class="nav-link" href="teams.html">Teams</a>
+                <a class="nav-link" href="fixtures.html">Fixtures</a>
+                <a class="nav-link" href="results.html">Results</a>
+                <a class="nav-link" href="standings.html">Standings</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-shell dashboard-main">
+        <section class="dashboard-hero" aria-labelledby="page-title">
+            <div>
+                <p class="eyebrow">COLLEGE SPORTS TOURNAMENT MANAGER</p>
+                <h1 id="page-title">Tournament Dashboard</h1>
+                <p class="hero-copy">Manage teams, schedule fixtures and track tournament results</p>
+            </div>
+            <div class="season-badge"><span class="status-dot"></span> 2026 SEASON</div>
+        </section>
+
+        <section class="dashboard-grid" aria-label="Tournament statistics">
+            <article class="stat-card stat-card--teams">
+                <div class="stat-topline"><span class="stat-label">Tournaments</span><span class="stat-mark">01</span></div>
+                <p class="stat-value" id="tournamentCount" aria-live="polite">--</p>
+                <p class="stat-note">All tournament records</p>
+            </article>
+            <article class="stat-card stat-card--fixtures">
+                <div class="stat-topline"><span class="stat-label">Active Tournaments</span><span class="stat-mark">02</span></div>
+                <p class="stat-value stat-value--compact" id="activeTournamentCount" aria-live="polite">--</p>
+                <p class="stat-note">Currently in progress</p>
+            </article>
+            <article class="stat-card stat-card--teams">
+                <div class="stat-topline"><span class="stat-label">Total Teams</span><span class="stat-mark">03</span></div>
+                <p class="stat-value" id="teamCount" aria-live="polite">--</p>
+                <p class="stat-note">Registered for the tournament</p>
+            </article>
+            <article class="stat-card stat-card--results">
+                <div class="stat-topline"><span class="stat-label">Total Fixtures</span><span class="stat-mark">04</span></div>
+                <p class="stat-value" id="fixtureCount" aria-live="polite">--</p>
+                <p class="stat-note">Scheduled across tournaments</p>
+            </article>
+            <article class="stat-card stat-card--fixtures">
+                <div class="stat-topline"><span class="stat-label">Matches Completed</span><span class="stat-mark">05</span></div>
+                <p class="stat-value" id="resultCount" aria-live="polite">--</p>
+                <p class="stat-note">Results recorded from matches</p>
+            </article>
+        </section>
+
+        <p class="dashboard-status" id="dashboardStatus" role="status" hidden></p>
+
+        <section class="overview-grid" aria-label="Match activity">
+            <article class="content-panel">
+                <div class="section-heading">
+                    <div><p class="eyebrow">ON THE SCHEDULE</p><h2 class="section-title">Upcoming Matches</h2></div>
+                    <a class="text-link" href="fixtures.html">All fixtures <span aria-hidden="true">&rarr;</span></a>
+                </div>
+                <div class="match-list" id="dashboardFixtures" aria-live="polite"></div>
+                <p class="empty-state" id="dashboardFixturesEmpty">Loading fixtures...</p>
+            </article>
+
+            <article class="content-panel">
+                <div class="section-heading">
+                    <div><p class="eyebrow">FINAL SCORES</p><h2 class="section-title">Recent Results</h2></div>
+                    <a class="text-link" href="results.html">All results <span aria-hidden="true">&rarr;</span></a>
+                </div>
+                <div class="match-list" id="dashboardResults" aria-live="polite"></div>
+                <p class="empty-state" id="dashboardResultsEmpty">Loading results...</p>
+            </article>
+        </section>
+
+        <section class="overview-grid dashboard-lower" aria-label="Tournament status">
+            <article class="content-panel">
+                <div class="section-heading">
+                    <div><p class="eyebrow">LIVE TOURNAMENTS</p><h2 class="section-title">Tournament Progress</h2></div>
+                    <a class="text-link" href="tournaments.html">Manage <span aria-hidden="true">&rarr;</span></a>
+                </div>
+                <div class="progress-list" id="dashboardTournamentProgress"></div>
+                <p class="empty-state" id="dashboardTournamentEmpty">No tournaments available.</p>
+            </article>
+            <article class="content-panel leader-panel">
+                <p class="eyebrow">TOP OF THE TABLE</p>
+                <h2 class="section-title">Current Leader / Champion</h2>
+                <div id="dashboardLeader" class="leader-content">
+                    <p class="empty-state">No completed tournament yet.</p>
+                </div>
+            </article>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
